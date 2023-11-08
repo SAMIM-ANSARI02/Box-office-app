@@ -9,3 +9,5 @@ const apiGet=async(querryString)=>{
 
 }
 export const searchForShow=(qurry)=>apiGet(`/search/shows?q=${qurry}`)
+export const searchForpeople=(qurry)=>apiGet(`/search/people?q=${qurry}`)
+
