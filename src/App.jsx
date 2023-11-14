@@ -3,12 +3,16 @@ import Home from './pages/Home';
 import Starred from './pages/Starred';
 import MainLayout from './components/MainLayout';
 import Show from './pages/show';
+import {QueryClientProvider,QueryClient} from '@tanstack/react-query'
+
 // import Show from './pages/show';
 
 function App() {
+  const queryClient = new QueryClient()
   return (
     <div className="App">
-       <BrowserRouter>
+       <QueryClientProvider client={queryClient}>
+        <BrowserRouter>
            <Routes>
                <Route element={<MainLayout/>}>
                 <Route path='/' element={<Home/>}/>
@@ -18,6 +22,7 @@ function App() {
              <Route path='*' element={<div>Page Not Found</div>}/>
            </Routes>
        </BrowserRouter>
+       </QueryClientProvider>
      
     </div>
   );
