@@ -12,3 +12,9 @@ export const searchForShow=(qurry)=>apiGet(`/search/shows?q=${qurry}`)
 export const searchForpeople=(qurry)=>apiGet(`/search/people?q=${qurry}`)
 export const getShowId=(showId)=>apiGet(`/shows/${showId}?embed[]=seasons&embed[]=cast`)
 
+export const getshowByIds=async(showId)=>{
+    const promises=showId.map(showId=>apiGet(`/shows/${showId}`))
+    return  Promise.all(promises)
+    
+}
+
