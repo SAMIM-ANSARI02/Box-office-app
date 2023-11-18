@@ -3,6 +3,7 @@ import {UsestartedShow} from '../components/lib/UsestartedShow'
 import { useQuery} from '@tanstack/react-query'
 import ShowsGrid from '../components/show/ShowsGrid'
 import { getshowByIds } from '../Api/Tvmaza'
+import { TextCenter } from '../components/common/TextCentre'
 
 
 const Starred = () => {
@@ -15,16 +16,16 @@ const Starred = () => {
         refetchOnWindowFocus:false
       })
       if(starredShow===0){
-        return <div>NO shows are starred</div>
+        return <TextCenter>NO shows are starred</TextCenter>
       }
       if(starredShow?.length>0){
         return <ShowsGrid show={starredShow}/>
       }
       if(starredShowError){
-        return <div>shows are still Loading .....</div>
+        return <TextCenter>Error occured:{starredShowError.message}</TextCenter>
       }
   return (
-    <div>hello</div>
+    <TextCenter>shows are still Loading .....</TextCenter>
   )
 }
 

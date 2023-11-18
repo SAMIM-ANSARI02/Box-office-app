@@ -4,14 +4,19 @@ import Starred from './pages/Starred';
 import MainLayout from './components/MainLayout';
 import Show from './pages/show';
 import {QueryClientProvider,QueryClient} from '@tanstack/react-query'
+import { GlobalTheme } from './theme/Theme';
+
 
 // import Show from './pages/show';
+const queryClient = new QueryClient()
+
+
 
 function App() {
-  const queryClient = new QueryClient()
   return (
     <div className="App">
        <QueryClientProvider client={queryClient}>
+        <GlobalTheme>
         <BrowserRouter>
            <Routes>
                <Route element={<MainLayout/>}>
@@ -22,6 +27,7 @@ function App() {
              <Route path='*' element={<div>Page Not Found</div>}/>
            </Routes>
        </BrowserRouter>
+       </GlobalTheme>
        </QueryClientProvider>
      
     </div>
